@@ -53,8 +53,8 @@ export const NavMenu = () => {
         <Box sx={{
             height: '5vh',
             background: '#02005C',
-            borderTop: '1px solid gray',
-            borderBottom: '1px solid gray',
+            borderTop: '1px solid white',
+            borderBottom: '1px solid white',
             display: 'flex',
             justifyContent: 'center',
             alignItems: 'center'
