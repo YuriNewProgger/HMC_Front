@@ -7,6 +7,10 @@ import uniqid from 'uniqid';
 export const NavMenu = () => {
     const menuItems = [
         {
+            title: 'Главная',
+            link: ''
+        },
+        {
             title: 'Фотографии',
             link: 'photos'
         },

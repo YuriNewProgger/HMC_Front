@@ -12,6 +12,7 @@ export const MainPage = () => {
             <AppHeader/>
             <NavMenu/>
 
+            <Box sx={{color: 'white'}}>MainPage</Box>
         </Box>
     )
 }
