@@ -7,6 +7,7 @@ import musicIco from '../../../assets/icons/music.png'
 import uniqid from 'uniqid'
 import { NavLink } from "react-router-dom"
 import { Box, Image } from "@mantine/core";
+import { LinkItem } from "./LinkItem";
 
 
 export const LinksList = () => {
@@ -33,22 +34,10 @@ export const LinksList = () => {
         }];
 
     const [links, setLinks] = useState([]);
-
+    
     useLayoutEffect(() => {
         setLinks(
-            icons.map(item => <NavLink style={{
-                color: 'white',
-                textDecoration: 'none',
-                margin: '0 5%',
-            }} key={uniqid()}>
-                <Box sx={{
-                    '&:hover': { transform: 'scale(1.05)', }
-                }}>
-                    <Image src={item.ico} width={150} height={150} />
-                    <Box>{item.title}</Box>
-                </Box>
-
-            </NavLink>)
+            icons.map(item => <LinkItem key={uniqid()} imgSource={item.ico} title={item.title}/>)
         )
     }, []);
     return(
