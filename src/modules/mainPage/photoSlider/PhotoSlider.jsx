@@ -41,7 +41,8 @@ export const PhotoSlider = () => {
     return(
         <Box sx={{
             border: '2px solid black',
-            borderRadius: '20px'
+            borderRadius: '20px',
+            '&:hover': { cursor: 'pointer', border: '2px solid white', transform: 'scale(1.05)'}
         }}>
             <Image sx={{
                 opacity: op,

@@ -26,11 +26,11 @@ export const MainPage = () => {
                     width: '60vw',
                     height: '100%',
                     display: 'flex',
-                    //justifyContent: 'center',
                     justifyContent: 'space-around',
                     alignItems: 'center',
                     flexWrap: 'wrap'
                 }}>
+                    <PhotoSlider/>
                     <PhotoSlider/>
                     <PhotoSlider/>
                     <PhotoSlider/>
