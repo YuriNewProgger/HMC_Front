@@ -1,12 +1,12 @@
 import { Box } from "@mantine/core"
 import { AppHeader } from "../components/header/AppHeader"
 import { NavMenu } from "../components/navigation/NavMenu"
-import { useEffect } from "react"
-import { PhotoSlider } from "../modules/mainPage/photoSlider/PhotoSlider"
+import { LinksList } from "../modules/mainPage/linksList/LinksList"
+
 
 
 export const MainPage = () => {
-
+    
     return(
         <Box sx={{
             height: '100vh',
@@ -22,7 +22,6 @@ export const MainPage = () => {
                 justifyContent: 'center',
             }}>
                 <Box sx={{
-                    background: 'green',
                     width: '60vw',
                     height: '100%',
                     display: 'flex',
@@ -30,11 +29,7 @@ export const MainPage = () => {
                     alignItems: 'center',
                     flexWrap: 'wrap'
                 }}>
-                    <PhotoSlider/>
-                    <PhotoSlider/>
-                    <PhotoSlider/>
-                    <PhotoSlider/>
-                    <PhotoSlider/>
+                    <LinksList/>
                 </Box>
             </Box>
         </Box>
