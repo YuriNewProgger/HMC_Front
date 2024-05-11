@@ -4,7 +4,7 @@ import { NavMenu } from "../components/navigation/NavMenu"
 import { useEffect } from "react"
 
 
-export const MainPage = () => {
+export const MainPageSmartTv = () => {
 
     return(
         <Box sx={{
