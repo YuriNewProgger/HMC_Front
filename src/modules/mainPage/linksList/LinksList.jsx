@@ -14,30 +14,35 @@ export const LinksList = () => {
     const icons = [
         {
             title: 'Фото',
-            ico: photoIco
+            ico: photoIco,
+            link: '/photos'
         }, 
         {
             title: 'Видео',
-            ico: videoIco
+            ico: videoIco,
+            link: '/homeVideos'
         },
         {
             title: 'ТВ',
-            ico: tvIco
+            ico: tvIco,
+            link: '/tv'
         }, 
         {
             title: 'Фильмы',
-            ico: movieIco
+            ico: movieIco,
+            link: '/films'
         },
         {
             title: 'Музыка',
-            ico: musicIco
+            ico: musicIco,
+            link: '/musics'
         }];
 
     const [links, setLinks] = useState([]);
     
     useLayoutEffect(() => {
         setLinks(
-            icons.map(item => <LinkItem key={uniqid()} imgSource={item.ico} title={item.title}/>)
+            icons.map(item => <LinkItem key={uniqid()} imgSource={item.ico} title={item.title} link={item.link}/>)
         )
     }, []);
     return(

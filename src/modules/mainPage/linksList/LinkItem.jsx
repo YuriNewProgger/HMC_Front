@@ -3,7 +3,7 @@ import { useState } from "react"
 import { Link, NavLink } from "react-router-dom"
 
 
-export const LinkItem = ({ imgSource, title }) => {
+export const LinkItem = ({ imgSource, title, link }) => {
 
     const [isHover, setIsHover] = useState(false);
 
@@ -13,7 +13,7 @@ export const LinkItem = ({ imgSource, title }) => {
             margin: '0 5%',
             '&:hover': { transform: 'scale(1.1)', }
         }} onMouseEnter={() => setIsHover(!isHover)} onMouseLeave={() => setIsHover(!isHover)}>
-            <NavLink to={'#'}>
+            <NavLink to={link}>
                 <Image styles={{
                     root: { 
                         opacity: isHover ? 0.2 : 1
