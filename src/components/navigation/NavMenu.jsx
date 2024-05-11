@@ -1,10 +1,10 @@
 import { Box } from "@mantine/core"
 import { useLayoutEffect, useState } from "react"
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import uniqid from 'uniqid';
 
 
-export const NavMenu = () => {
+export const NavMenu = ({isSmartTv}) => {
     const menuItems = [
         {
             title: 'Главная',
@@ -34,19 +34,39 @@ export const NavMenu = () => {
 
     const [links, setLinks] = useState();
 
+
     useLayoutEffect(() => {
-        setLinks(
-            menuItems.map(item => {
-                return <NavLink key={uniqid()} to={`/${item.link}`} style={{
-                    textDecoration: 'none',
-                    margin: '0 1%',
-                    color: 'white',
-                    fontSize: '1.2em'
-                }}>
-                    {item.title}
-                </NavLink>
-            })
-        );
+        if(isSmartTv){
+            setLinks(
+                menuItems.map(item => {
+                    return <Box key={uniqid()}  sx={{
+                        textDecoration: 'none',
+                        margin: '0 1%',
+                        color: 'white',
+                        fontSize: '1.2em',
+                        '&:hover': { cursor: 'pointer' }
+                    }}>
+                        {item.title}
+                    </Box>
+                })
+            );
+        }
+        else{
+            setLinks(
+                menuItems.map(item => {
+                    return <NavLink key={uniqid()} to={`/${item.link}`} style={{
+                        textDecoration: 'none',
+                        margin: '0 1%',
+                        color: 'white',
+                        fontSize: '1.2em'
+                    }}>
+                        {item.title}
+                    </NavLink>
+                })
+            );
+        }
+
+        
     }, [])
 
     return(
