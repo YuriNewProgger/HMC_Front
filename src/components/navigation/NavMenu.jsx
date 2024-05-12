@@ -17,11 +17,7 @@ export const NavMenu = ({isSmartTv}) => {
         {
             title: 'Видео',
             link: 'homeVideos'
-        },
-        {
-            title: 'ТВ',
-            link: 'tv'
-        },
+        },        
         {
             title: 'Музыка',
             link: 'musics'
@@ -29,6 +25,10 @@ export const NavMenu = ({isSmartTv}) => {
         {
             title: 'Фильмы',
             link: 'films'
+        },
+        {
+            title: 'Настройки',
+            link: 'admin'
         },
     ]
 

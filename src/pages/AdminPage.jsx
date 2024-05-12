@@ -4,7 +4,7 @@ import { AppHeader } from "../components/header/AppHeader"
 import { NavMenu } from "../components/navigation/NavMenu"
 import processIcon from '../assets/icons/Process.png'
 
-export const TvPage = () => {
+export const AdminPage = () => {
     return(
         <Box sx={OutterContainer}>
             <AppHeader/>

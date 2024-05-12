@@ -1,9 +1,9 @@
 import { useLayoutEffect, useState } from "react";
 import photoIco from '../../../assets/icons/photo.png'
 import videoIco from '../../../assets/icons/video.png'
-import tvIco from '../../../assets/icons/tv.png'
 import movieIco from '../../../assets/icons/movie.png'
 import musicIco from '../../../assets/icons/music.png'
+import settingsIco from '../../../assets/icons/settings.png'
 import uniqid from 'uniqid'
 import { NavLink } from "react-router-dom"
 import { Box, Image } from "@mantine/core";
@@ -21,21 +21,21 @@ export const LinksList = () => {
             title: 'Видео',
             ico: videoIco,
             link: '/homeVideos'
-        },
+        },        
         {
-            title: 'ТВ',
-            ico: tvIco,
-            link: '/tv'
-        }, 
+            title: 'Музыка',
+            ico: musicIco,
+            link: '/musics'
+        },
         {
             title: 'Фильмы',
             ico: movieIco,
             link: '/films'
         },
         {
-            title: 'Музыка',
-            ico: musicIco,
-            link: '/musics'
+            title: 'Настройки',
+            ico: settingsIco,
+            link: '/admin'
         }];
 
     const [links, setLinks] = useState([]);

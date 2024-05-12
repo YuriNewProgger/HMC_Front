@@ -21,7 +21,8 @@ export const LinkItem = ({ imgSource, title, link }) => {
                 }} src={imgSource} width={150} height={150} />
                 <Box sx={{
                     position: 'absolute',
-                    left: title.length < 5 ? '40%' : '25%',
+                    //left: title.length < 5 ? '40%' : '25%',
+                    left: title.length < 5 ? '40%' : title.length > 6 ? '10%' : '20%',
                     top: '35%',
                     textDecoration: 'none',
                     color: 'white',
