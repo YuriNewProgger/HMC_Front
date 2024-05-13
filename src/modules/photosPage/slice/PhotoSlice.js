@@ -1,9 +1,13 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit"
 import { LOADING_STATUS } from "../../../constants/LoadingStatuses"
+import { DateFormating } from "../../../utils/DateForming"
 
 
 const initialState = {
-    statusLoadingPhoto: 'idle'
+    statusLoadingPhoto: 'idle',
+    photos: [],
+    dateStart: DateFormating(new Date(), 3),
+    dateEnd: DateFormating(new Date(), -165)
 }
 
 
