@@ -1,9 +1,9 @@
 import { configureStore } from "@reduxjs/toolkit";
-import smartRenderControllerReducer from "./slice/smartRenderControllerSlice";
+import photoReducer from '../modules/photosPage/slice/PhotoSlice';
 
 
 export default configureStore({
     reducer: {
-        smartRenderController: smartRenderControllerReducer
+        photo: photoReducer
     }
 })
