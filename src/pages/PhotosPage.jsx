@@ -3,6 +3,7 @@ import { OutterContainer } from "../styles/styles"
 import { AppHeader } from "../components/header/AppHeader"
 import { NavMenu } from "../components/navigation/NavMenu"
 import processIcon from '../assets/icons/Process.png'
+import { Photos } from "../modules/photosPage/photoTables/Photos"
 
 
 export const PhotosPage = () => {
@@ -18,11 +19,7 @@ export const PhotosPage = () => {
                 alignItems: 'center',
                 flexDirection: 'column'
             }}>
-                <Box sx={{
-                    color: 'white',
-                    fontSize: '1.2em'
-                }}>В разработке</Box>
-                <Image src={processIcon} width={200} height={200}/>                
+                <Photos/>           
             </Box>
         </Box>
     )
