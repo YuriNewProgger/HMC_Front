@@ -5,7 +5,8 @@ import { DateFormating } from "../../../utils/DateForming"
 
 const initialState = {
     statusLoadingPhoto: 'idle',
-    photos: [],
+    selectedPotos: null,
+    //photos: [],
     dateStart: DateFormating(new Date(), 3),
     dateEnd: DateFormating(new Date(), -165)
 }
@@ -14,7 +15,11 @@ const initialState = {
 export const photoSlice = createSlice({
     name: 'photoSlice',
     initialState,
-    reducers:{},
+    reducers:{
+        setSelectedPhoto: (state, action) => {
+            state.selectedPotos = action.payload;
+        }
+    },
     extraReducers: builder => {
         builder
         .addCase(GetPhotoQuery.pending, (state, action) => {
@@ -32,5 +37,11 @@ export const photoSlice = createSlice({
 export const GetPhotoQuery = createAsyncThunk('photoSlice/GetPhotoQuery', async(value, thunkAPI) => {
 
 })
+
+export const GetSelectedPhoto = (state) => state.photo.selectedPotos;
+
+export const {
+    setSelectedPhoto
+} = photoSlice.actions;
 
 export default photoSlice.reducer;

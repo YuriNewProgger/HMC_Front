@@ -10,6 +10,7 @@ import {DTFormat, DateFormating} from '../../../utils/DateForming'
 import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { GetPhotoUrl } from "../api/api";
+import { setSelectedPhoto } from "../slice/PhotoSlice";
 
 Date.prototype.addHours = function(h) {
     this.setTime(this.getTime() + (h*60*60*1000));
@@ -106,14 +107,12 @@ const PhotosTable = () => {
     //this will depend on your API response shape    
     const fetchedMsg = data?.photos ?? [];
     const totalRowCount = data?.totalCounts ?? 0;
-    console.log(fetchedMsg);
-    console.log(totalRowCount);
 
 
     const table = useMantineReactTable({
         columns,
         //data: [],
-        data: fetchedMsg?.length > 0 ? fetchedMsg.map(item => ({ timestamp: item.date, title: item.link})) : fetchedMsg,        
+        data: fetchedMsg?.length > 0 ? fetchedMsg.map(item => ({ timestamp: item.date.split('.')[0].replace('T', ' ').replace('Z', ''), title: item.link.split('/')[item.link.split('/').length - 1], link: item.link})) : fetchedMsg,        
         //localization: ASSET_LIST_PANEL_LOCALIZATION,
         columnFilterModeOptions: ['contains'],
         initialState: { showColumnFilters: false },
@@ -146,7 +145,7 @@ const PhotosTable = () => {
 
         mantinePaperProps: {
             sx: {
-                width: '30%',
+                //width: '50%',
                 height: '95%',
                 overflowY: 'auto',
                 borderRadius: '15px',
@@ -178,16 +177,27 @@ const PhotosTable = () => {
                 'tbody > tr > td': {
                     backgroundColor: 'inherit',
                     color: '#white',
-                    fontSize: '1em'
+                    fontSize: '1em',
+                    textAlign: 'left',
+                    '&:hover': { cursor: 'pointer' }
                 },
             },
         },
 
-        mantineTableBodyCellProps: {
+        // mantineTableBodyCellProps: {
+        //     sx: {
+        //         color: 'white',
+        //     }
+        // },
+        mantineTableBodyCellProps: ({ cell }) => ({
             sx: {
-                color: 'white'
-            }
-        },
+                color: 'white',
+            },
+            onClick: (event) => {
+                //console.log(cell.row.original);
+                dispatch(setSelectedPhoto(cell.row.original.link))
+            },
+        }),
 
         // mantineTableBodyCellProps: ({ cell }) => ({
         //     onClick: (event) => {
