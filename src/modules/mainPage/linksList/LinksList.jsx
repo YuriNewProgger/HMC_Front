@@ -1,9 +1,4 @@
 import { useLayoutEffect, useState } from "react";
-import photoIco from '../../../assets/icons/photo.png'
-import videoIco from '../../../assets/icons/video.png'
-import movieIco from '../../../assets/icons/movie.png'
-import musicIco from '../../../assets/icons/music.png'
-import settingsIco from '../../../assets/icons/settings.png'
 import uniqid from 'uniqid'
 import { NavLink } from "react-router-dom"
 import { Box, Image } from "@mantine/core";
@@ -12,31 +7,32 @@ import { LinkItem } from "./LinkItem";
 
 export const LinksList = () => {
     const icons = [
-        {
-            title: 'Фото',
-            ico: photoIco,
-            link: '/photos'
-        }, 
-        {
-            title: 'Видео',
-            ico: videoIco,
-            link: '/homeVideos'
-        },        
-        {
-            title: 'Музыка',
-            ico: musicIco,
-            link: '/musics'
-        },
-        {
-            title: 'Фильмы',
-            ico: movieIco,
-            link: '/films'
-        },
-        {
-            title: 'Настройки',
-            ico: settingsIco,
-            link: '/admin'
-        }];
+        // {
+        //     title: 'Фото',
+        //     ico: photoIco,
+        //     link: '/photos'
+        // }, 
+        // {
+        //     title: 'Видео',
+        //     ico: videoIco,
+        //     link: '/homeVideos'
+        // },        
+        // {
+        //     title: 'Музыка',
+        //     ico: musicIco,
+        //     link: '/musics'
+        // },
+        // {
+        //     title: 'Фильмы',
+        //     ico: movieIco,
+        //     link: '/films'
+        // },
+        // {
+        //     title: 'Настройки',
+        //     ico: settingsIco,
+        //     link: '/admin'
+        // }
+    ];
 
     const [links, setLinks] = useState([]);
     

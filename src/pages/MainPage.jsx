@@ -10,12 +10,12 @@ export const MainPage = () => {
     return(
         <Box sx={{
             height: '100vh',
-            background: '#1B1B1B'
+            background: '#141A32'
         }}>
             <AppHeader/>
-            <NavMenu/>
+            {/* <NavMenu/> */}
 
-            <Box sx={{
+            {/* <Box sx={{
                 color: 'white',
                 height: '79.8vh',
                 display: 'flex',
@@ -30,6 +30,19 @@ export const MainPage = () => {
                     flexWrap: 'wrap'
                 }}>
                     <LinksList/>
+                </Box>
+            </Box> */}
+
+            <Box sx={{
+                display: 'flex',
+                height: '90vh'
+            }}>
+                <NavMenu/>
+                
+                <Box sx={{
+                    background: 'blueviolet'
+                }}>
+
                 </Box>
             </Box>
         </Box>

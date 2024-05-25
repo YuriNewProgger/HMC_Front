@@ -1,34 +1,40 @@
-import { Box } from "@mantine/core"
+import { Box, Image } from "@mantine/core"
 import { useLayoutEffect, useState } from "react"
 import { Link, NavLink } from "react-router-dom";
 import uniqid from 'uniqid';
+import { FontFamilyHeaderText } from "../../style/commonStyle";
+import photoImg from '../../assets/icons/photo.png'
+import videoImg from '../../assets/icons/video.png'
+import musicImg from '../../assets/icons/music.png'
+import movieImg from '../../assets/icons/movie.png'
+import cartoonImg from '../../assets/icons/cartoons.png'
 
-
-export const NavMenu = ({isSmartTv}) => {
+export const NavMenu = () => {
     const menuItems = [
         {
-            title: 'Главная',
-            link: ''
-        },
-        {
-            title: 'Фотографии',
-            link: 'photos'
+            title: 'Фото',
+            link: 'photos',
+            img: photoImg
         },
         {
             title: 'Видео',
-            link: 'homeVideos'
+            link: 'homeVideos',
+            img: videoImg
         },        
         {
             title: 'Музыка',
-            link: 'musics'
+            link: 'musics',
+            img: musicImg
         },
         {
             title: 'Фильмы',
-            link: 'films'
+            link: 'films',
+            img: movieImg
         },
         {
-            title: 'Настройки',
-            link: 'admin'
+            title: 'Мудьтики',
+            link: 'admin',
+            img: cartoonImg
         },
     ]
 
@@ -36,48 +42,36 @@ export const NavMenu = ({isSmartTv}) => {
 
 
     useLayoutEffect(() => {
-        if(isSmartTv){
-            setLinks(
-                menuItems.map(item => {
-                    return <Box key={uniqid()}  sx={{
-                        textDecoration: 'none',
-                        margin: '0 1%',
-                        color: 'white',
-                        fontSize: '1.2em',
-                        '&:hover': { cursor: 'pointer' }
+        setLinks(
+            menuItems.map(item => {
+                return <NavLink key={uniqid()} to={`/${item.link}`} style={{
+                    textDecoration: 'none',
+                    margin: '2% 0',
+                    color: 'white',
+                    fontSize: '1.5em',
+                    paddingLeft: '10%',
+                    ...FontFamilyHeaderText
+                }}>
+                    <Box sx={{
+                        display: 'flex'
                     }}>
-                        {item.title}
+                        <Image src={item.img} width={25} height={25}/>
+                        <Box sx={{margin: '0 10px'}}>{item.title}</Box>
                     </Box>
-                })
-            );
-        }
-        else{
-            setLinks(
-                menuItems.map(item => {
-                    return <NavLink key={uniqid()} to={`/${item.link}`} style={{
-                        textDecoration: 'none',
-                        margin: '0 1%',
-                        color: 'white',
-                        fontSize: '1.2em'
-                    }}>
-                        {item.title}
-                    </NavLink>
-                })
-            );
-        }
+                </NavLink>
+            })
+        );
 
         
     }, [])
 
     return(
         <Box sx={{
-            height: '5vh',
-            background: '#02005C',
-            borderTop: '1px solid white',
-            borderBottom: '1px solid white',
+            width: '10vw',
             display: 'flex',
-            justifyContent: 'center',
-            alignItems: 'center'
+            flexDirection: 'column',
+            alignItems: 'flex-start',
+            borderRight: '1px solid #03A9F4'
         }}>
             {links}
         </Box>
