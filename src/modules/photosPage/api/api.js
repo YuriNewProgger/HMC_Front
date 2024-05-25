@@ -13,5 +13,6 @@ import { server } from "../../../api/api";
  * @returns Сформированый URL получения фотографий
  */
 export const GetPhotoUrl = (dateStart, dateEnd, offset, count, search, orderField, orderType) => {
+    console.log(server);
     return `${server}/api/photos?dateStart=${dateStart}&&dateEnd=${dateEnd}&&offset=${offset}&&count=${count}&&search=${search}&&orderField=${orderField}&&orderType=${orderType}`;
 }

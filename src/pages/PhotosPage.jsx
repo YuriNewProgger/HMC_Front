@@ -21,14 +21,14 @@ export const PhotosPage = () => {
                 alignItems: 'center',
             }}>
                 <Box sx={{
-                    width: '30%',
+                    width: '35%',
                     height: '100%'
                 }}>
                     <Photos/>
                 </Box>
 
                 <Box sx={{
-                    width: '70%',
+                    width: '65%',
                     height: '100%'
                 }}>
                     <PhotoViewer/>

@@ -48,7 +48,7 @@ export const PhotoViewer = () => {
             {
                 selectedPhoto ? 
                     <Box>
-                        <Image src={`${server}/${selectedPhoto}`} fit="contain" width={_width / 100 * fillPercentWidth} height={_height / 100 * fillPercentHeight} styles={{
+                        <Image src={`${server}${selectedPhoto}`} fit="contain" width={_width / 100 * fillPercentWidth} height={_height / 100 * fillPercentHeight} styles={{
                             root: { margin: '1%' }
                         }} />
                         <Box>{selectedPhoto.split('/')[selectedPhoto.split('/').length - 1]}</Box>

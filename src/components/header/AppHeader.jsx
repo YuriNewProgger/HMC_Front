@@ -1,5 +1,5 @@
 import { Box } from "@mantine/core"
-
+import { FontFamilyHeaderText, FontFamilySimpleText } from "../../style/commonStyle"
 
 export const AppHeader = () => {
     return(
@@ -12,8 +12,8 @@ export const AppHeader = () => {
             justifyContent: 'center',
             fontSize: '5em',
             fontFamily: 'Souvenir',
-            fontWeight: 'bold'
-            //fontFamily: 'Comic Sans MS'
+            fontWeight: 'bold',
+            ...FontFamilyHeaderText
         }}>
             Home Media Center
         </Box>

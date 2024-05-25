@@ -43,6 +43,7 @@ const useGetUsers = ({
             typeOrder: sorting[0].desc ? 'desc' : 'asc'
         }
     })()
+    console.log(123);
 
     const fetchURL = GetPhotoUrl(DTFormat(dateStart), DTFormat(dateEnd), `${pagination.pageIndex * pagination.pageSize}`, `${pagination.pageSize}`,
         serachFilter ?? '', defineColumnsOrders.fieldOrder, defineColumnsOrders.typeOrder);
@@ -112,7 +113,7 @@ const PhotosTable = () => {
     const table = useMantineReactTable({
         columns,
         //data: [],
-        data: fetchedMsg?.length > 0 ? fetchedMsg.map(item => ({ timestamp: item.date.split('.')[0].replace('T', ' ').replace('Z', ''), title: item.link.split('/')[item.link.split('/').length - 1], link: item.link})) : fetchedMsg,        
+        data: fetchedMsg?.length > 0 ? fetchedMsg.map(item => ({ timestamp: item.timestamp.split('.')[0].replace('T', ' ').replace('Z', ''), title: item.link.split('/')[item.link.split('/').length - 1], link: item.link})) : fetchedMsg,        
         //localization: ASSET_LIST_PANEL_LOCALIZATION,
         columnFilterModeOptions: ['contains'],
         initialState: { showColumnFilters: false },
@@ -122,8 +123,8 @@ const PhotosTable = () => {
         enableGlobalFilterModes: true,
         enableGlobalFilter: true,
         enableColumnFilters: false,
-
-        enableFullScreenToggle: true,
+        enableHiding: false,
+        enableFullScreenToggle: false,
         enableDensityToggle: false,
         manualFiltering: true,
         manualPagination: true,
