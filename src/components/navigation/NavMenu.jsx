@@ -32,7 +32,7 @@ export const NavMenu = () => {
             img: movieImg
         },
         {
-            title: 'Мудьтики',
+            title: 'Мультики',
             link: 'admin',
             img: cartoonImg
         },
