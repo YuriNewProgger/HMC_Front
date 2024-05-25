@@ -4,18 +4,19 @@ import { FontFamilyHeaderText, FontFamilySimpleText } from "../../style/commonSt
 export const AppHeader = () => {
     return(
         <Box sx={{
-            background: 'linear-gradient(to top, #02005C, #76006A)',
+            background: '#03A9F4',
             color: 'white',
-            height: '15vh',
+            height: '10vh',
             display: 'flex',
             alignItems: 'center',
-            justifyContent: 'center',
-            fontSize: '5em',
+            justifyContent: 'flex-start',
+            paddingLeft: '2.5%',
+            fontSize: '3em',
             fontFamily: 'Souvenir',
             fontWeight: 'bold',
             ...FontFamilyHeaderText
         }}>
-            Home Media Center
+            Home Cloud
         </Box>
     )
 }
