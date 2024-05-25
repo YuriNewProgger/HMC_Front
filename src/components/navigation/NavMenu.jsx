@@ -53,7 +53,8 @@ export const NavMenu = () => {
                     ...FontFamilyHeaderText
                 }}>
                     <Box sx={{
-                        display: 'flex'
+                        display: 'flex',
+                        '&:hover': { transform: 'scale(1.1)', }
                     }}>
                         <Image src={item.img} width={25} height={25}/>
                         <Box sx={{margin: '0 10px'}}>{item.title}</Box>
