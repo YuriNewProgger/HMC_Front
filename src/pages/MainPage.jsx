@@ -2,6 +2,7 @@ import { Box } from "@mantine/core"
 import { AppHeader } from "../components/header/AppHeader"
 import { NavMenu } from "../components/navigation/NavMenu"
 import { LinksList } from "../modules/mainPage/linksList/LinksList"
+import { BackScreen } from "../modules/mainPage/bg/BackScreen"
 
 
 
@@ -38,12 +39,7 @@ export const MainPage = () => {
                 height: '90vh'
             }}>
                 <NavMenu/>
-                
-                <Box sx={{
-                    background: 'blueviolet'
-                }}>
-
-                </Box>
+                <BackScreen/>
             </Box>
         </Box>
     )

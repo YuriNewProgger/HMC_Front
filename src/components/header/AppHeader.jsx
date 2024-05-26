@@ -10,7 +10,7 @@ export const AppHeader = () => {
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'flex-start',
-            paddingLeft: '2.5%',
+            paddingLeft: '1%',
             fontSize: '3em',
             fontFamily: 'Souvenir',
             fontWeight: 'bold',
