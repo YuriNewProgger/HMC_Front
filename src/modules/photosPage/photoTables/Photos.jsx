@@ -11,6 +11,7 @@ import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { GetPhotoUrl } from "../api/api";
 import { setSelectedPhoto } from "../slice/PhotoSlice";
+import { FontFamilyHeaderText } from "../../../style/commonStyle";
 
 Date.prototype.addHours = function(h) {
     this.setTime(this.getTime() + (h*60*60*1000));
@@ -143,22 +144,37 @@ const PhotosTable = () => {
             sorting,
         },
 
-
         mantinePaperProps: {
+            withBorder: false,
             sx: {
-                //width: '50%',
-                height: '95%',
+                height: '98%',
                 overflowY: 'auto',
-                borderRadius: '15px',
+                borderRadius: '5px',
                 color: 'white',
-                backgroundColor: '#1B1B1B',
-                margin: '1%',
-                
-                '& div': {
-                    backgroundColor: '#1B1B1B',
-                },
+                backgroundColor: '#1e2747',
+                border: '0px solid red',
+                margin: '1%'                
             }
         },
+
+        mantineTopToolbarProps: {
+            sx: {
+                background: '#1e2747',
+                color: 'white',
+            }
+        },
+
+        mantineBottomToolbarProps: {
+            sx: {
+                background: '#1e2747',
+                color: 'white',
+
+                '& label': {
+                   color: 'white'
+                }
+            }
+        },
+        
         
         mantineTableProps: {
             highlightOnHover: false,
@@ -185,11 +201,6 @@ const PhotosTable = () => {
             },
         },
 
-        // mantineTableBodyCellProps: {
-        //     sx: {
-        //         color: 'white',
-        //     }
-        // },
         mantineTableBodyCellProps: ({ cell }) => ({
             sx: {
                 color: 'white',
@@ -254,9 +265,11 @@ const PhotosTable = () => {
         <Box sx={{
             height: '100%',
             width: '100%',
-            overflowY: 'auto'
+            overflowY: 'auto',
+            display: 'flex',
+            alignItems: 'center'
         }}>
-            
+
             <MantineReactTable table={table} />
         </Box>
     )

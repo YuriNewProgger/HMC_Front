@@ -8,31 +8,67 @@ import { PhotoViewer } from "../modules/photosPage/photoViewer/PhotoViewer"
 
 
 export const PhotosPage = () => {
-    return(
-        <Box sx={OutterContainer}>
-            <AppHeader/>
-            <NavMenu/>
+    // return(
+    //     <Box sx={OutterContainer}>
+    //         <AppHeader/>
+    //         <NavMenu/>
+
+    //         <Box sx={{
+    //             height: '79.8vh',
+    //             width: '100%',
+    //             display: 'flex',
+    //             justifyContent: 'center',
+    //             alignItems: 'center',
+    //         }}>
+    //             <Box sx={{
+    //                 width: '35%',
+    //                 height: '100%'
+    //             }}>
+    //                 <Photos/>
+    //             </Box>
+
+    //             <Box sx={{
+    //                 width: '65%',
+    //                 height: '100%'
+    //             }}>
+    //                 <PhotoViewer/>
+    //             </Box>
+    //         </Box>
+    //     </Box>
+    // )
+
+    return (
+        <Box sx={{
+            height: '100vh',
+            background: '#141A32'
+        }}>
+            <AppHeader />
 
             <Box sx={{
-                height: '79.8vh',
-                width: '100%',
                 display: 'flex',
-                justifyContent: 'center',
-                alignItems: 'center',
+                height: '90vh'
             }}>
-                <Box sx={{
-                    width: '35%',
-                    height: '100%'
-                }}>
-                    <Photos/>
-                </Box>
+                <NavMenu />
 
                 <Box sx={{
-                    width: '65%',
-                    height: '100%'
+                    display: 'flex',
+                    width: '100%'
                 }}>
-                    <PhotoViewer/>
+                    <Box sx={{
+                        width: '35%',
+                        height: '100%'
+                    }}>
+                        <Photos />
+                    </Box>
+
+                    <Box sx={{
+                        width: '65%',
+                        height: '100%'
+                    }}>
+                        <PhotoViewer />
+                    </Box>
                 </Box>
+
             </Box>
         </Box>
     )
