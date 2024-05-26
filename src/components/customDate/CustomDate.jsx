@@ -1,6 +1,7 @@
 import { DateTimePicker } from "@mantine/dates";
 import 'dayjs/locale/ru'
 import { useEffect, useState } from "react";
+import { FontFamilyHeaderText } from "../../style/commonStyle";
 //import { FontFamilySimpleText } from "../../styles/styles";
 //import { funcCall, smExt } from "../../until/DefineExtention";
 
@@ -44,7 +45,7 @@ export const CustomDate = ({getValue, label, placeHolder, dateValue, colorLable}
     return(
         <DateTimePicker styles={{
             root: { display: 'flex', alignItems: 'center' },
-            label: { marginRight: '5px', color: colorLable ? colorLable : '#003274', fontSize: '1.2em' },
+            label: { marginRight: '5px', color: colorLable ? colorLable : '#003274', fontSize: '1em' },
             wrapper: { margin: '0 5px' },
             input: { fontSize: '1em' }
         }}
@@ -54,6 +55,7 @@ export const CustomDate = ({getValue, label, placeHolder, dateValue, colorLable}
             value={date}
             dropdownType="modal"
             size="xs"
+            radius="xl"
             onChange={(e) => {
                 setDate(e);
                 getValue(new Date(e).addHours(3)?.toISOString().replace('Z', '').split('.')[0]);

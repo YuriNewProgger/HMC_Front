@@ -125,6 +125,7 @@ const PhotosTable = () => {
         enableGlobalFilter: true,
         enableColumnFilters: false,
         enableHiding: false,
+        enableFilters: false,
         enableFullScreenToggle: false,
         enableDensityToggle: false,
         manualFiltering: true,
