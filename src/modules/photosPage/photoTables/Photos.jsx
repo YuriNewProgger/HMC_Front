@@ -25,6 +25,7 @@ const useGetUsers = ({
     pagination,
     dateStart,
     dateEnd,
+    categories
 }) => {
 
 
@@ -44,14 +45,13 @@ const useGetUsers = ({
             typeOrder: sorting[0].desc ? 'desc' : 'asc'
         }
     })()
-    console.log(123);
 
     const fetchURL = GetPhotoUrl(DTFormat(dateStart), DTFormat(dateEnd), `${pagination.pageIndex * pagination.pageSize}`, `${pagination.pageSize}`,
-        serachFilter ?? '', defineColumnsOrders.fieldOrder, defineColumnsOrders.typeOrder);
+        serachFilter ?? '', defineColumnsOrders.fieldOrder, defineColumnsOrders.typeOrder, categories);
     
 
     return useQuery({
-        queryKey: ['photos', serachFilter, sorting, pagination, dateStart, dateEnd], //refetch whenever the URL changes (globalFilter, globalFilter, sorting, pagination)        
+        queryKey: ['photos', serachFilter, sorting, pagination, dateStart, dateEnd, categories], //refetch whenever the URL changes (globalFilter, globalFilter, sorting, pagination)        
         queryFn: () => fetch(fetchURL).then((res) => res.json()),        
         keepPreviousData: true, //useful for paginated queries by keeping data from previous pages on screen while fetching the next page
         staleTime: 30_000, //don't refetch previously viewed pages until cache is more than 30 seconds old
@@ -59,7 +59,6 @@ const useGetUsers = ({
 };
 
 const PhotosTable = () => {
-    const navigate = useNavigate();
     const dispatch = useDispatch();
     const columns = useMemo(
         () => [
@@ -91,10 +90,10 @@ const PhotosTable = () => {
         pageIndex: 0,
         pageSize: 5,
     });
-    // const [dateStart, _setDateStart] = useState(new Date().addHours(-168));
-    // const [dateEnd, _setDateEnd] = useState(new Date());
+    
     const [dateStart, _setDateStart] = useState(new Date());
     const [dateEnd, _setDateEnd] = useState(new Date());
+    const [categories, setCategories] = useState('all');
 
 
     //call our custom react-query hook
@@ -104,6 +103,7 @@ const PhotosTable = () => {
         pagination,
         dateStart, //дата начала выборки
         dateEnd, //дата конечной выборки
+        categories
     });
 
     //this will depend on your API response shape    
@@ -243,7 +243,7 @@ const PhotosTable = () => {
             <Box sx={{
                 display: 'flex',
                 alignItems: 'center',
-                //justifyContent: 'space-between',
+                justifyContent: 'center',
                 width: '100%',
                 margin: '0',
                 padding: '0'
@@ -256,13 +256,15 @@ const PhotosTable = () => {
                     //margin: '0 30px'
                 }}>
                     <Select styles={{
-                        input: { borderRadius: '25px' }
-                    }}
-                        placeholder="Все"
+                            input: { borderRadius: '25px' }
+                        }}
+                        //placeholder="Все"
                         data={[
                             { value: 'all', label: 'Все' },
                             { value: 'Kira', label: 'Кира' }
-                        ]} />
+                        ]}
+                        value={categories} onChange={(e) => setCategories(e)}
+                    />
                     <CustomDate label={'От'} colorLable={'white'} getValue={(e) => _setDateStart(e)} dateValue={dateStart} />
                     <CustomDate label={'До'} colorLable={'white'} getValue={(e) => _setDateEnd(e)} dateValue={dateEnd} />
 
