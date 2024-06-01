@@ -1,4 +1,4 @@
-import { Box, Button, Checkbox, Image, Tooltip } from "@mantine/core";
+import { Box, Button, Checkbox, Image, Select, Tooltip } from "@mantine/core";
 import React, { memo, useEffect, useState } from "react";
 import { useMemo } from 'react';
 import { MantineReactTable, useMantineReactTable } from 'mantine-react-table';
@@ -243,19 +243,29 @@ const PhotosTable = () => {
             <Box sx={{
                 display: 'flex',
                 alignItems: 'center',
-                justifyContent: 'space-between',
+                //justifyContent: 'space-between',
                 width: '100%',
+                margin: '0',
+                padding: '0'
             }}>
                 
 
                 <Box sx={{
                     display: 'flex',
                     alignItems: 'center',
-                    margin: '0 30px'
-                }}>                        
-                    <CustomDate label={'От'} colorLable={'white'} getValue={(e) => _setDateStart(e)} dateValue={dateStart}/>
-                    <CustomDate label={'До'} colorLable={'white'} getValue={(e) => _setDateEnd(e)} dateValue={dateEnd}/>
-                    
+                    //margin: '0 30px'
+                }}>
+                    <Select styles={{
+                        input: { borderRadius: '25px' }
+                    }}
+                        placeholder="Все"
+                        data={[
+                            { value: 'all', label: 'Все' },
+                            { value: 'Kira', label: 'Кира' }
+                        ]} />
+                    <CustomDate label={'От'} colorLable={'white'} getValue={(e) => _setDateStart(e)} dateValue={dateStart} />
+                    <CustomDate label={'До'} colorLable={'white'} getValue={(e) => _setDateEnd(e)} dateValue={dateEnd} />
+
                 </Box>
             </Box>
         )
