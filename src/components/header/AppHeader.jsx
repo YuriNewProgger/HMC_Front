@@ -84,6 +84,11 @@ export const AppHeader = () => {
                     header: { background: '#141A32', color: 'white' }
                 }}
                 title='Вход'
+                overlayProps={{
+                    color: 'black',
+                    opacity: 0.7,
+                    blur: 5,
+                  }}
             >
                 <Sign/>
             </Modal>
