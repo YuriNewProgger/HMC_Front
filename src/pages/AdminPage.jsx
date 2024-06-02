@@ -3,6 +3,7 @@ import { OutterContainer } from "../styles/styles"
 import { AppHeader } from "../components/header/AppHeader"
 import { NavMenu } from "../components/navigation/NavMenu"
 import processIcon from '../assets/icons/Process.png'
+import { Outlet } from "react-router-dom"
 
 export const AdminPage = () => {
     return(
@@ -17,11 +18,7 @@ export const AdminPage = () => {
                 alignItems: 'center',
                 flexDirection: 'column'
             }}>
-                <Box sx={{
-                    color: 'white',
-                    fontSize: '1.2em'
-                }}>В разработке</Box>
-                <Image src={processIcon} width={200} height={200}/>                
+
             </Box>
         </Box>
     )
