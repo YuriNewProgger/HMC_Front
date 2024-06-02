@@ -7,8 +7,8 @@ import { useEffect, useRef, useState } from "react";
 
 
 export const PhotoViewer = () => {
-    const fillPercentWidth = 80;
-    const fillPercentHeight = 80;
+    const fillPercentWidth = 95;
+    const fillPercentHeight = 95;
 
     const selectedPhoto = useSelector(GetSelectedPhoto);
 
@@ -43,11 +43,18 @@ export const PhotoViewer = () => {
             display: 'flex',
             justifyContent: 'center',
             alignItems: 'center',
-            color: 'white'
+            color: 'white',
         }}>
             {
                 selectedPhoto ? 
-                    <Box>
+                    <Box sx={{
+                        display: 'flex',
+                        justifyContent: 'center',
+                        alignItems: 'center',
+                        flexDirection: 'column',
+                        width: '100%',
+                        height: '100%'
+                    }}>
                         <Image src={`${server}${selectedPhoto}`} fit="contain" width={_width / 100 * fillPercentWidth} height={_height / 100 * fillPercentHeight} styles={{
                             root: { margin: '1%' }
                         }} />
