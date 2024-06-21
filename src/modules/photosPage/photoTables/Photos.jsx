@@ -48,7 +48,7 @@ const useGetUsers = ({
 
     const fetchURL = GetPhotoUrl(DTFormat(dateStart), DTFormat(dateEnd), `${pagination.pageIndex * pagination.pageSize}`, `${pagination.pageSize}`,
         serachFilter ?? '', defineColumnsOrders.fieldOrder, defineColumnsOrders.typeOrder, categories);
-    
+
 
     return useQuery({
         queryKey: ['photos', serachFilter, sorting, pagination, dateStart, dateEnd, categories], //refetch whenever the URL changes (globalFilter, globalFilter, sorting, pagination)        

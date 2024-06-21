@@ -5,12 +5,14 @@ import { useSelector } from "react-redux";
 import { getUser } from "../../modules/auth/slice/AuthSlice";
 import { useState } from "react";
 import { Sign } from "../../modules/auth/Sign";
+import { Registration } from "../../modules/auth/Registration";
 
 export const AppHeader = () => {
     const navigate = useNavigate();
     const user = useSelector(getUser)
 
     const [isDisplayLoginWindow, setIsDisplayLoginWindow] = useState(false);
+    const [isDisplayRegistrationWindow, setIsDisplayRegistrationWindow] = useState(false);
 
 
     return(
@@ -90,7 +92,22 @@ export const AppHeader = () => {
                     blur: 5,
                   }}
             >
-                <Sign/>
+                <Sign close={() => setIsDisplayLoginWindow(false)} displayRegistrationWindow={() => setIsDisplayRegistrationWindow(true)}/>
+            </Modal>
+
+            <Modal opened={isDisplayRegistrationWindow} onClose={() => setIsDisplayRegistrationWindow(false)}
+                styles={{
+                    content: { background: '#141A32' },
+                    header: { background: '#141A32', color: 'white' }
+                }}
+                title='Регистрация'
+                overlayProps={{
+                    color: 'black',
+                    opacity: 0.7,
+                    blur: 5,
+                  }}
+            >
+                <Registration closeCb={() => setIsDisplayRegistrationWindow(false)} isDisplaySignWindow={() => setIsDisplayLoginWindow(true)}/>
             </Modal>
         </Box>
     )
