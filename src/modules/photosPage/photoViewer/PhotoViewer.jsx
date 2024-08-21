@@ -35,6 +35,9 @@ export const PhotoViewer = () => {
     }
     //#endregion
 
+    const definePathPhoto = (path) =>{
+        return `${"development" ? `http://127.0.0.1:8000` : "http://192.168.1.35:8000"}${path}`;
+    }
 
     return(
         <Box ref={ref} sx={{
@@ -55,7 +58,7 @@ export const PhotoViewer = () => {
                         width: '100%',
                         height: '100%'
                     }}>
-                        <Image src={`${server}${selectedPhoto}`} fit="contain" width={_width / 100 * fillPercentWidth} height={_height / 100 * fillPercentHeight} styles={{
+                        <Image src={definePathPhoto(selectedPhoto)} fit="contain" width={_width / 100 * fillPercentWidth} height={_height / 100 * fillPercentHeight} styles={{
                             root: { margin: '1%' }
                         }} />
                         <Box>{selectedPhoto.split('/')[selectedPhoto.split('/').length - 1]}</Box>

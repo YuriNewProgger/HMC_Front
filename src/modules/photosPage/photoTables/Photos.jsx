@@ -110,6 +110,8 @@ const PhotosTable = () => {
     const fetchedMsg = data?.photos ?? [];
     const totalRowCount = data?.totalCounts ?? 0;
 
+    
+
 
     const table = useMantineReactTable({
         columns,
