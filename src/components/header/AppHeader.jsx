@@ -24,6 +24,8 @@ export const AppHeader = () => {
                 ...FontFamilyHeaderText
             }} onClick={() => navigate('/')}>Home Cloud</Box>
 
+            <Button onClick={() => navigate('/admin')}>admin</Button>
+
         </Box>
     )
 }
