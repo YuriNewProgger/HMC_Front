@@ -6,24 +6,27 @@ const initialState = {
     lodaingStates: {
         statusLoadingPhoto: LOADING_STATUS.idle
     },
-    listPhotos: null
+    listPhotos: null,
+    selectedTab: null
 }
 
 export const adminSlice = createSlice({
     name: 'adminSlice',
     initialState,
     reducers: {
-
+        setSelectedTab: (state, action) => {
+            state.selectedTab = action.payload;
+        }
     },
     extraReducers: builder => {
         builder
-        .addCase(getAdminPhotos.pending, (state, action) => {
+        .addCase(getAdminPhotosQuery.pending, (state, action) => {
             state.lodaingStates.statusLoadingPhoto = LOADING_STATUS.loading;
         })
-        .addCase(getAdminPhotos.rejected, (state, action) => {
+        .addCase(getAdminPhotosQuery.rejected, (state, action) => {
             state.lodaingStates.statusLoadingPhoto = LOADING_STATUS.error;
         })
-        .addCase(getAdminPhotos.fulfilled, (state, action) => {
+        .addCase(getAdminPhotosQuery.fulfilled, (state, action) => {
             state.lodaingStates.statusLoadingPhoto = LOADING_STATUS.success;
 
             state.listPhotos = action.payload;
@@ -31,13 +34,15 @@ export const adminSlice = createSlice({
     }
 })
 
-export const getAdminPhotos = createAsyncThunk('adminSlice/getAdminPhotos', async(value, thunkAPI) => {
+export const getAdminPhotosQuery = createAsyncThunk('adminSlice/getAdminPhotos', async(value, thunkAPI) => {
     const result = await fetch(GetPhotoAdminUrl(value.tab, value.count, value.offset)).then(res => res.json());
     return result;
 })
 
-export const {
+export const GetAdminListPhotos = (state) => state.admin.listPhotos;
 
+export const {
+    setSelectedTab
 } = adminSlice.actions;
 
 export default adminSlice.reducer;

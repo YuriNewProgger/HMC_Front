@@ -4,7 +4,7 @@ import delIcon from '../../../assets/icons/delete.png'
 import editIcon from '../../../assets/icons/edit.png'
 import { useState } from "react"
 import { useDispatch } from "react-redux"
-import { getAdminPhotos } from "../slice/AdminSlice"
+import { getAdminPhotosQuery, setSelectedTab } from "../slice/AdminSlice"
 
 const categoryTab = [
     { value: 'photos', label: 'Фото' },
@@ -20,9 +20,10 @@ export const ControlPanel = () => {
 
     const categoryTabHandler = (e) => {
         console.log(e);
+        dispatch(setSelectedTab(e));
 
         switch (e) {
-            case 'photos': dispatch(getAdminPhotos({tab: e, count: 10, offset: 0}));                
+            case 'photos': dispatch(getAdminPhotosQuery({tab: e, count: 10, offset: 0}));                
                 break;
         
             default: alert(e + "не реализовано")

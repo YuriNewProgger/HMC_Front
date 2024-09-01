@@ -5,6 +5,7 @@ import { NavMenu } from "../components/navigation/NavMenu"
 import processIcon from '../assets/icons/Process.png'
 import { Outlet } from "react-router-dom"
 import { ControlPanel } from "../modules/adminPage/controlPanel/ControlPanel"
+import { ListContent } from "../modules/adminPage/listContent/ListContent"
 
 export const AdminPage = () => {
     return(
@@ -21,7 +22,7 @@ export const AdminPage = () => {
                 flexDirection: 'column'
             }}>
                 
-                ADMIN
+                <ListContent/>
             </Box>
         </Box>
     )
