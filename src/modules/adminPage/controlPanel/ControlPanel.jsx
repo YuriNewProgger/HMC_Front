@@ -26,7 +26,7 @@ export const ControlPanel = () => {
             case 'photos': dispatch(getAdminPhotosQuery({tab: e, count: 10, offset: 0}));                
                 break;
         
-            default: alert(e + "не реализовано")
+            default: alert(e + " не реализовано")
                 break;
         }
 
@@ -35,7 +35,6 @@ export const ControlPanel = () => {
 
     return (
         <Box sx={{
-            //background: 'green',
             height: '5vh',
             width: '100vw',
             display: 'flex',

@@ -1,11 +1,8 @@
 import { Box, Image } from "@mantine/core"
 import { OutterContainer } from "../styles/styles"
 import { AppHeader } from "../components/header/AppHeader"
-import { NavMenu } from "../components/navigation/NavMenu"
-import processIcon from '../assets/icons/Process.png'
-import { Outlet } from "react-router-dom"
 import { ControlPanel } from "../modules/adminPage/controlPanel/ControlPanel"
-import { ListContent } from "../modules/adminPage/listContent/ListContent"
+import { Content } from "../modules/adminPage/content/Content"
 
 export const AdminPage = () => {
     return(
@@ -21,8 +18,7 @@ export const AdminPage = () => {
                 alignItems: 'center',
                 flexDirection: 'column'
             }}>
-                
-                <ListContent/>
+                <Content/>
             </Box>
         </Box>
     )

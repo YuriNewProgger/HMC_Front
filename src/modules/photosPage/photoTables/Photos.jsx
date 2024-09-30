@@ -151,6 +151,7 @@ const PhotosTable = () => {
             withBorder: false,
             sx: {
                 height: '98%',
+                width: '100%',
                 overflowY: 'auto',
                 borderRadius: '5px',
                 color: 'white',
