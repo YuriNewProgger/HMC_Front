@@ -207,7 +207,7 @@ const PhotosTable = () => {
 
         mantineTableBodyCellProps: ({ cell }) => ({
             sx: {
-                color: 'white',
+                color: 'white',//
             },
             onClick: (event) => { 
                 dispatch(setSelectedPhoto(cell.row.original.link))
