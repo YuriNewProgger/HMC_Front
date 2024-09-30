@@ -209,7 +209,7 @@ const PhotosTable = () => {
             sx: {
                 color: 'white',
             },
-            onClick: (event) => {
+            onClick: (event) => { 
                 dispatch(setSelectedPhoto(cell.row.original.link))
             },
         }),
