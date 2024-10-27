@@ -1,11 +1,8 @@
-import { Box } from '@mantine/core'
-import './App.css'
+import { AppRoute } from './components/appRoute/AppRoute'
 
 function App() {
   return (
-    <Box>
-      App
-    </Box>
+    <AppRoute/>
   )
 }
 

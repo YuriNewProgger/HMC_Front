@@ -17,8 +17,15 @@
 
 body {
   margin: 0;
-  display: flex;
-  place-items: center;
-  min-width: 320px;
-  min-height: 100vh;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+@font-face {
+  font-family: 'AmaticSC-Bold';
+  src: local('AmaticSC-Bold'), url(./assets/Fonts/AmaticSC-Bold.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'AmaticSC-Regular';
+  src: local('AmaticSC-Regular'), url(./assets/Fonts/AmaticSC-Regular.ttf) format('truetype');
 }
